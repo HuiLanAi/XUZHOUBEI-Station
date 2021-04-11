@@ -1,0 +1,18 @@
+[1]
+[2]github上项目：openpose
+[3]https://github.com/MVIG-SJTU/AlphaPose
+[4]github上项目：mobile pose
+[5]见文件夹
+[6]见文件夹
+[7]待定
+[8]待定
+[9]NTU-RGB+D
+[10]待定
+[11]见文件夹
+[12]见文件夹
+[13]见文件夹
+[14]见文件夹
+[15]见文件夹
+[16]见文件夹
+[17]见文件夹
+[18]见文件夹
