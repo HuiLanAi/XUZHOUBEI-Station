@@ -1,0 +1,14 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdftex 2021.4.13)  13 APR 2021 09:16
+entering extended mode
+**C:/Users/Administrator/Desktop/second/conference_101719.tex.bak
+(C:/Users/Administrator/Desktop/second/conference_101719.tex.bak
+! Undefined control sequence.
+l.1 \documentclass
+                  [conference]{IEEEtran}
+? 
+! Emergency stop.
+l.1 \documentclass
+                  [conference]{IEEEtran}
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

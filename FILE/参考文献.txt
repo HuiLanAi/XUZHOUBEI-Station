@@ -1,13 +1,57 @@
-[1]
-[2]github上项目：openpose
-[3]https://github.com/MVIG-SJTU/AlphaPose
-[4]github上项目：mobile pose
+[1] @InProceedings{Cheng_2020_CVPR,
+author = {Cheng, Ke and Zhang, Yifan and He, Xiangyu and Chen, Weihan and Cheng, Jian and Lu, Hanqing},
+title = {Skeleton-Based Action Recognition With Shift Graph Convolutional Network},
+booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2020}
+} 
+[2] Gao, J., Zhang, T., & Xu, C. (2019). 
+I Know the Relationships: Zero-Shot Action Recognition via Two-Stream Graph Convolutional Networks and Knowledge Graphs. 
+Proceedings of the AAAI Conference on Artificial Intelligence, 33(01), 8303-8311. 
+https://doi.org/10.1609/aaai.v33i01.33018303
+
+[2] @InProceedings{Cao_2017_CVPR,
+author = {Cao, Zhe and Simon, Tomas and Wei, Shih-En and Sheikh, Yaser},
+title = {Realtime Multi-Person 2D Pose Estimation Using Part Affinity Fields},
+booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {July},
+year = {2017}
+}
+[3]  title={{RMPE}: Regional Multi-person Pose Estimation},
+  author={Fang, Hao-Shu and Xie, Shuqin and Tai, Yu-Wing and Lu, Cewu},
+  booktitle={ICCV},
+  year={2017}
+}
+
+[4]@article{li2018crowdpose,
+  title={CrowdPose: Efficient Crowded Scenes Pose Estimation and A New Benchmark},
+  author={Li, Jiefeng and Wang, Can and Zhu, Hao and Mao, Yihuan and Fang, Hao-Shu and Lu, Cewu},
+  journal={arXiv preprint arXiv:1812.00324},
+  year={2018}
+}
+
+[5]@inproceedings{xiu2018poseflow,
+  author = {Xiu, Yuliang and Li, Jiefeng and Wang, Haoyu and Fang, Yinghong and Lu, Cewu},
+  title = {{Pose Flow}: Efficient Online Pose Tracking},
+  booktitle={BMVC},
+  year = {2018}
+}
+[4]https://github.com/LiQiang0307/MobilePose-pytorch
 [5]见文件夹
 [6]见文件夹
-[7]待定
-[8]待定
-[9]NTU-RGB+D
-[10]待定
+[9] @InProceedings{Shahroudy_2016_CVPR,
+author = {Shahroudy, Amir and Liu, Jun and Ng, Tian-Tsong and Wang, Gang},
+title = {NTU RGB+D: A Large Scale Dataset for 3D Human Activity Analysis},
+booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2016}
+}
+[10] @inproceedings{46330,
+title	= {The Kinetics Human Action Video Dataset},
+author	= {Andrew Zisserman and Joao Carreira and Karen Simonyan and Will Kay and Brian Zhang and Chloe Hillier and Sudheendra Vijayanarasimhan and Fabio Viola and Tim Green and Trevor Back and Paul Natsev and Mustafa Suleyman},
+year	= {2017}
+}
+arXiv:1705.06950, 2017. 2, 5, 6
 [11]见文件夹
 [12]见文件夹
 [13]见文件夹
