@@ -139,7 +139,7 @@ The subtle elements in such graph are proved to be positively associated with pr
 For instance, in 2s-AGCN model, the prediction accuracy decreases by 2.3\% without learnable matrix \cite{9}.
 Although Ding et al. \cite{10} present a FPGA-based work on accelerating ST-GCN, a smaller action recognition GCNs, their work falls short on more complex models for (i) They
 do not prune the target model. (ii) They choose to compress sparse static skeleton graph, while skeleton relationship matrix in some models can be dense. (iii) Only sparsity graph is
-optimized for computation, while feature sparsity is not utilized. (iv) Their single-PE design cannot meet performance requirement of application scenarios.
+optimized for computation, while feature sparsity is not utilized. (iv) Their single-PE design cannot meet performance requirement of application scenarios. To summarize, such GCN models with dense matrixes bring new challenges for architecture.
 
 For these reasons, efficient pruning methods together with specific accelerator designs are urgently required to accelerate GCNs action recognition workloads.
 To this end, we present RFC-HyPGCN: a runtime sparse feature compress accelerator for skeleton-based GCNs action recognition model with hybrid pruning in this paper.
@@ -289,7 +289,7 @@ Moreover, this neighbour connection is hardware-friendly for that the number of 
 This inherent feature supports a balanced layer-pipelined architecture.
 \begin{figure}[t]
 \centerline{\includegraphics[width=0.32\textwidth]{myfig4.pdf}}
-\caption{The illustration of fine-grained pruning on temporal convolution. White elements are pruned while blue ones are kept. Every 9x1 kernel performs on time series of skeleton vectors, and the blue vectors are sampled by first pruning scheme.}\label{myfig4}
+\caption{The illustration of fine-grained pruning on temporal convolution. White elements are pruned while blue ones are kept. Every 9$\times$1 kernel performs on time series of skeleton vectors, and the blue vectors are sampled by first pruning scheme.}\label{myfig4}
 \end{figure}
 
 Coarse-grained pruning can provide 49.83\%-88.96\% compression ratio on temporal filters, depending on the pruning scheme in data organization phase. To further prune temporal convolutional weights, fine-grained pruning is proposed. The point of fine-grained method is that in temporal convolution, zero weight means not sampling current vectors in time order. Fig.~\ref{myfig4} demonstrates details of sampling-like fine-grained pruning method. Several pruning schemes with different intervals and offsets are conducted on filters recurrently. By this means, the design of pruning scheme is turned into a sampling problem. We can simulate various sampling schemes on filters, with different sampling frequencies and phases represented by intervals and offsets. Experiments show that with proper pruning scheme, our fine-grained method can keep accuracy as well as discarding unimportant weight.
@@ -375,7 +375,7 @@ Besides, the input-skip model with 86\% compress ratio still keeps the accuracy 
 To find the best pruning scheme, we conduct isolated experiments respectively. Additionally, based on our dataflow reorganization method, graph-skipping rate equals channel-dropping rate of this phase.
  Guided by feature sparsity in Fig.~\ref{myfig10},
 we first set each layer¡¯s channel pruning rate roughly equals it¡¯s sparsity respectively. For higher parameter reduction ratio,
-we progressively raise compressing rate on layers and observe effect on accuracy, as shown in Fig.~\ref{myfig10}. Drop-1, drop-2, and drop-3 stands for different channel pruning design.
+we progressively raise compressing rate on layers and observe effect on accuracy, as shown in Fig.~\ref{myfig10}. Drop-1, Drop-2, and Drop-3 stands for different channel pruning design.
 The spatial convolutional parameter in block 1 is not pruned for it only has three input channels.
 Also, mix-grained pruning on temporal convolution is excluded to validate data reorganization method.
 It reveals that with compress rate shifting away from base sparsity, model reduction is growing while accuracy is decreasing.
@@ -502,7 +502,7 @@ speed-up&&9.19&3.91&5.97&2.74&2.61&1.36\\
 The resource utilization is demonstrated in Table.~\ref{tab4}, together with comparison with \cite{10}.
 Experiments have proved that our design has superiority on peak performance, throughput and DSP efficiency.
 In Table.~\ref{tab5}, we compare the peak performance of ours and two GPUs.
-The original means testing program is the original version of 2s-AGCN, and the skip means input-skipping is applied.
+The original means testing program is the original version of 2s-AGCN, and the skip means w/oC together with input-skipping is applied.
 To fully use the memory in GPUs, target model runs with 200 or 700 samples in one batch on 2080Ti and V100, respectively.
 Although V100 has 14TFLOPS of peak performance on float data, our pruning methods provides 86\% parameter reductions and 88\% computation skipping efficiency.
 Moreover, our layer-pipelined structure does not need to exchange data with peripheral memory except for loading original input, which further increases performance.
