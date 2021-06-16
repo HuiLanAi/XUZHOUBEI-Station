@@ -209,7 +209,7 @@ Table.~\ref{tab1} demonstrates the computing cost of self-similarity. The runnin
 \hline
 2sAGCN(w/C)&93.70\%&69.38 fps&0.28 fsp/watt \\
 \hline
-2sAGCN(w/o pC)&93.40\%&98.87 fps&0.40 fps/watt \\
+2sAGCN(w/oC)&93.40\%&98.87 fps&0.40 fps/watt \\
 \hline
 \end{tabular}
 \label{tab1}
@@ -244,7 +244,7 @@ Zhang et al. \cite{18} partitioned input data into smaller segments, then perfor
 Hy-GCN  \cite{19} split GCNs workloads into \textit{Aggregation and Combination} phases.
 Different hardware structures and dataflows were designed for two phases respectively.
 To sum up, above works focus on: (i) Leveraging and expanding graph adjacency matrixes sparsity,
-(ii) Avoiding irregularity and randomness of data distribution in graph computation, 
+(ii) Avoiding irregularity and randomness of data distribution in graph computation,
 (iii) Keeping balanced workloads between PEs or computing phases, via offline and online ways.
 Unfortunately, graph in skeleton-based GCNs for action recognition models is dense and unchangeable.
 The data sparsity is embedded in temporal feature and pruned weights, not the graph.

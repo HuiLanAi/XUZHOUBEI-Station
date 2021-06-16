@@ -107,7 +107,7 @@
 
 Skeleton-based Graph Convolutional Networks (GCNs) models for action recognition have achieved excellent prediction accuracy in the field. However, limited by large model and computation complexity, GCNs for action recognition like 2s-AGCN have insufficient power-efficiency and throughput on GPU. Thus, the demand of model reduction and hardware acceleration for low-power GCNs action recognition application becomes continuously higher.
 
-To address challenges above, this paper proposes a runtime sparse feature compress accelerator with hybrid pruning method: RFC-HyPGCN. First, this method skips both graph and spatial convolution workloads by reorganizing the multiply order. Following spatial convolution¡¯s channel-pruning dataflow, a coarse-grained pruning method on temporal filters is designed, together with sampling-like fine-grained pruning on time dimension. Later, we come up with an architecture where all convolutional layers are mapped on chip to pursue high throughput. To further reduce storage resource utilization, online sparse feature compress format is put forward. Feature is divided and encoded into several banks according to presented format, then bank storage is split into depth-variable mini-banks. Furthermore, this work applies quantization, input-skipping and intra-PE dynamic data scheduling to accelerate the model. In experiments, proposed pruning method is conducted on 2s-AGCN, acquiring 3.0x-8.4x model compression ratio and 73.20\% graph-skipping efficiency with balancing weight pruning. Implemented on Xilinx XCKU-115 FPGA, the proposed architecture has the peak performance of 1142 GOP/s and achieves up to 9.19x and 3.91x speedup over high-end GPU NVIDIA 2080Ti and NVIDIA V100, respectively. Compared with latest accelerator for action recognition GCNs models, our design reaches 22.9x speedup and 28.93\% improvement on DSP efficiency.
+To address challenges above, this paper proposes a runtime sparse feature compress accelerator with hybrid pruning method: RFC-HyPGCN. First, this method skips both graph and spatial convolution workloads by reorganizing the multiplication order. Following spatial convolution¡¯s channel-pruning dataflow, a coarse-grained pruning method on temporal filters is designed, together with sampling-like fine-grained pruning on time dimension. Later, we come up with an architecture where all convolutional layers are mapped on chip to pursue high throughput. To further reduce storage resource utilization, online sparse feature compress format is put forward. Features are divided and encoded into several banks according to presented format, then bank storage is split into depth-variable mini-banks. Furthermore, this work applies quantization, input-skipping and intra-PE dynamic data scheduling to accelerate the model. In experiments, proposed pruning method is conducted on 2s-AGCN, acquiring 3.0x-8.4x model compression ratio and 73.20\% graph-skipping efficiency with balancing weight pruning. Implemented on Xilinx XCKU-115 FPGA, the proposed architecture has the peak performance of 1142 GOP/s and achieves up to 9.19x and 3.91x speedup over high-end GPU NVIDIA 2080Ti and NVIDIA V100, respectively. Compared with latest accelerator for action recognition GCNs models, our design reaches 22.9x speedup and 28.93\% improvement on DSP efficiency.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -119,12 +119,12 @@ Graph Neural Network, Action Recognition, Hybrid Pruning, Sparse Data Compress, 
 %Please observe the conference page limits.
 Action recognition based on deep learning has the great potential to be applied in kindergartens, hospitals and stadiums to prevent danger motions.
 Skeleton-based graph convolutional networks (GCNs) methods have achieved state-of-the-art (SOTA) prediction accuracy in the field \cite{1}\cite{2}\cite{3}.
-Mature pose estimation algorithms extract human skeletons from video stream with real-time speed, for example, Open pose \cite{4} and Alpha pose \cite{5}.
+Mature pose estimation algorithms extract human skeletons from video stream with real-time speed, for example, OpenPose \cite{4} and Alphapose \cite{5}.
 GCNs action recognition models and pose estimation models thus can be combined into an end-to-end system.
 
 Despite skeleton-based GCNs having great advantages, several problems limit their applications in expected scenarios.
 Firstly, intensive computation and large network architectures are embedded in skeleton-based GCNs, causing great computing cost on GPUs.
-Mobile pose \cite{6} can produce human skeletons on mobile platform Snapdragon 845 with 60 fps and 44.4 fps/Watt,
+MobilePose \cite{6} can produce human skeletons on mobile platform Snapdragon 845 with 60 fps and 44.4 fps/Watt,
 while 2s-AGCN model merely has a performance of 28 fps and 0.11fps/Watt on NVIDIA 2080Ti GPU.
 The computing speed and power-consumption's gap indicates a great importance on accelerating GCNs action recognition algorithms.
 Secondly, the expected application environment of action recognition models poses stringent constraints on power-consumption and throughput.
@@ -134,7 +134,7 @@ Network pruning and graph sparsification \cite{7}\cite{8} are two effective meth
 However, these methods are unsuitable for skeleton-based GCNs. There are two reasons. (i) \emph{Dataflow is transformed}: Graph computation changes the convolution dataflow.
 When being conducted on different dataflows, traditional pruning methods for CNNs only skip useless computing in convolution but may not work on graph task. (ii) \emph{Skeleton-relationship graph is unchangeable and sensitive.} Some works use pooling \cite{7} or graph sparsification \cite{8} to drop unimportant edges and points in graph.
 However, the human skeleton graph cannot be modified for bones connection being unchangeable.
-Particularly, in some GCNs models there exists learnable hidden information graph \cite{1}\cite{9}, which lacks sparsity.
+Particularly, there are learnable hidden information graph \cite{1}\cite{9} which lacks sparsity in some GCNs models .
 The subtle elements in such graph are proved to be positively associated with prediction performance.
 For instance, in 2s-AGCN model, the prediction accuracy decreases by 2.3\% without learnable matrix \cite{9}.
 Although Ding et al. \cite{10} present a FPGA-based work on accelerating ST-GCN, a smaller action recognition GCNs, their work falls short on more complex models for (i) They
@@ -145,7 +145,7 @@ For these reasons, efficient pruning methods together with specific accelerator 
 To this end, we present RFC-HyPGCN: a runtime sparse feature compress accelerator for skeleton-based GCNs action recognition model with hybrid pruning in this paper.
 
 A hybrid GCNs' pruning method is proposed, which can reduce convolutional parameters and skip graph computation efficiently.
-We reorganize dataflow by changing the multiply order of graph workloads and spatial convolution.
+We reorganize dataflow by changing the multiplication order of graph workloads and spatial convolution.
 With new dataflow, a group of graph computation and spatial convolution are skipped if the corresponding parameter is pruned as zero.
 As to the temporal convolution, mixed-grained pruning method is elaborately designed.
 Fine-grained pruning operation can be dealt as sampling in time series, while coarse-grained pruning is decided by spatial convolution's pruned dataflow.
@@ -155,7 +155,7 @@ Additionally, quantization and input-skipping are applied on software level, whi
 We also design an application-specific architecture. Ten convolution blocks are mapped on FPGA, which is the platform widely used for speeding up deep neural networks.
 Different from previous works, in our layer-pipelined architecture, challenges are not only reflected on different kinds of sparse tasks,
 but also on how to efficiently store sparse intermediate results on chip.
-Common compact formats like CSC is not the optimal resolution due its irregular memory access and extra encoding/decoding cost.
+Common compact formats like compressed sparse column format (CSC) is not the optimal resolution due its irregular memory access and extra encoding/decoding cost.
 To address these challenges, our sparse-degree-based runtime sparse feature compress method is proposed,
 which splits data encoding/decoding and corresponding storage into fine-grained bank and mini-bank.
 Finally, dynamic data scheduling is applied for intra process elements (PE) to decrease the utilization of DSPs.
@@ -164,31 +164,31 @@ In summary, the contributions in this paper are:
 \begin{itemize}
 
 \item We propose a hybrid pruning method on 2s-AGCN model, which contains dataflow reorganization and mix-grained pruning method.
-The experiments show that this method is better than conventional pruning on computation-skipping and prediction accuracy.
+The experiments show that our method is better than conventional pruning on computation-skipping and prediction accuracy.
 
 \item A co-designed architecture is implemented, including runtime sparse vector compress storage and dynamic data scheduling.
 The proposed online data compact format reduces the utilization of BRAM blocks as well as keeping regularity of data-access.
-Dynamic data scheduling saves DSPs and raises DSPs working efficiency with little delay.
+Dynamic data scheduling saves DSPs and raises DSPs working efficiency with tiny delay.
 
 \item Our design is implemented on Xilinx XCKU-115 FPGA platforms with 172 MHz.
 It achieves 2.61x-9.19x accelerating ratio compared with NVIDIA 2080Ti and 1.36x-3.91x with NVIDIA V100.
 On contrast to similar work \cite{10}, ours exceeds on both peak performance and DSPs efficiency.
-It turns out to have the potential to apply in end-to-end and low-power real time environments.
+It has the potential to apply in end-to-end and low-power real time environments.
 \end{itemize}
 \section{Background on 2s-AGCN Model}
 \begin{figure}[t]
 \centerline{\includegraphics[width=0.42\textwidth]{myfig1.pdf}}
 \caption{Left: Structure of the basic convolutional block. ConvS stands for spatial convolution and ConvT stands for temporal convolution. Right: Variance of the feature dimension. There are 25 key joints in human skeleton and 300 skeleton vectors in the original input feature.}\label{myfig1}
 \end{figure}
-The skeleton-based action recognition GCN models regard human skeleton features as input.
+The skeleton-based action recognition GCN models regard human skeleton features as input and predict human action , like waving and drinking.
 Several human skeleton datasets have been proposed, for example NTU-RGB+D\cite{11} and Kinetics \cite{12}.
-2s-AGCN is trained on NTU-RGB+D. There are ten convolutional blocks and one fully-connected (FC) layer in 2s-AGCN model.
+Our experiments on 2s-AGCN are trained and tested on NTU-RGB+D. There are ten convolutional blocks and one fully-connected (FC) layer in 2s-AGCN model.
 As shown in the left picture in Fig.~\ref{myfig1}, the computation in each block can be divided into five phases:
 graph computation, self-similarity computation, spatial convolution, temporal convolution and shortcut connection.
 Batch-normalization and ReLU activation follow behind each convolution operations. With network going deeper, more channels are stacked on feature.
 The right picture of Fig.~\ref{myfig1} illustrates this tendency in data dimension.
 
-In each layer, three different graphs are embedded in computation: $A_{k}$, $B_{k}$ and $C_{k}$. The first part $A_{k}$ is the static human skeleton graph, the second part $B_{k}$ is a learnable skeleton connection graph and $C_{k}$ is a data-dependent graph generated from self-similarity process. Elements in $B_{k}$ are trained to indicate hidden relationships between joints and bones. Unlike static graph $A_{k}$, $B_{k}$ is dense and sensitive to numerical changes. In \cite{9}, $C_{k}$ is produced via \eqref{eq1}, where high-dimension tensor transposition and multiplication are conducted on input feature. $W_{\theta}$ represents similarity coefficient. To sum up, the computation of graph and spatial convolution can be described as \eqref{eq2}. $K_{\nu}$ denotes the neighbour size of the graph computation and is set to 3 in the 2s-AGCN model. The kernel size of spatial convolution¡¯s weight $W_{k}$  is set to 1.
+In each layer, three different graphs are involved in computation: $A_{k}$, $B_{k}$ and $C_{k}$, $k$ is explained in \eqref{eq2}. The first part $A_{k}$ is the static human skeleton graph, the second part $B_{k}$ is a learnable skeleton connection graph and $C_{k}$ is a data-dependent graph generated from self-similarity process. Elements in $B_{k}$ are trained to indicate hidden relationships between joints and bones. Unlike static graph $A_{k}$, $B_{k}$ is dense and sensitive to numerical changes. In \cite{9}, $C_{k}$ is produced via \eqref{eq1}, where high-dimension tensor transposition and multiplication are conducted on input feature. $W_{\theta}$ represents similarity coefficient. To sum up, the computation of graph and spatial convolution can be described as \eqref{eq2}. $\bigotimes$ represents convolution operation, $K_{\nu}$ denotes the neighbour size of the graph computation and is set to 3 in the 2s-AGCN model. The kernel size of spatial convolution¡¯s weight $W_{k}$  is set to 1.
 \begin{equation}
 C_{k}=softmax(f_{in}^{T}W_{\theta}f_{in})\label{eq1}
 \end{equation}
@@ -209,7 +209,7 @@ Table.~\ref{tab1} demonstrates the computing cost of self-similarity. The runnin
 \hline
 2sAGCN(w/C)&93.70\%&69.38 fps&0.28 fsp/watt \\
 \hline
-2sAGCN(w/o pC)&93.40\%&98.87 fps&0.40 fps/watt \\
+2sAGCN(w/o C)&93.40\%&98.87 fps&0.40 fps/watt \\
 \hline
 \end{tabular}
 \label{tab1}
@@ -231,21 +231,21 @@ For above reasons, the connection shown in Fig.~\ref{myfig2} guides us to conduc
 
 \textbf{CNNs Accelerators on FPGA.} Works on FPGA-based acceleration of sparse CNNs can be categorized by different pruning granularity levels \cite{13}:
 (i) for coarse-grained pruned models, (ii) for fine-grained pruned models, (iii) for mixed-grained pruned models.
-Zhu et al. \cite{13} present a zero-skipping dataflow for feature. Although such method raises computing efficiency, zero elements in intermediate result still occupy storage resource.
-Lu et al. \cite{14} propose a weight-oriented dataflow for fine-grained pruned CNNs with little decoding cost.
-However, our 2s-AGCN model differs from above convolutional workloads in that feature first goes through graph matrix multiplication.
-This weight-oriented design cannot skip corresponding graph computation. Li et al. \cite{15} work on PCONV pruning \cite{16}, a mixed-grained method.
-With weight-stationary dataflow designed on FPGA, Li et al. improve the computing efficiency by 14.7\%-44\%.
-However, this work still occupies storage space for huge scale of zero data like Lu et al., and its simple hardware structure cannot tackle complex workloads in our task.
+Zhu et al. \cite{13} presented a zero-skipping dataflow for feature. Although such method raised computing efficiency, zero elements in intermediate result still occupied storage resource.
+Lu et al. \cite{14} proposed a weight-oriented dataflow for fine-grained pruned CNNs with little decoding cost.
+However, 2s-AGCN model differs from above convolutional workloads in that feature first goes through graph matrix multiplication.
+This weight-oriented design cannot skip corresponding graph computation. Li et al. \cite{15} worked on PCONV pruning \cite{16}, a mixed-grained method.
+With weight-stationary dataflow designed on FPGA, Li et al. improved the computing efficiency by 14.7\%-44\%.
+However, this work still occupied storage space for huge scale of zero data like Lu et al., and its simple hardware structure could not tackle complex workloads in our task.
 
 \textbf{GCN Accelerators on FPGA.} Many works on accelerating large graph's GCNs based on FPGA are presented in recent time.
-AWB-GCN \cite{17} combines offline software averaging and runtime hardware workloads balancing on several large graph datasets.
-Zhang et al. \cite{18} partition input data into smaller segments, then perform graph sparsification and node re-ordering for computation reduction and data locality.
-Hy-GCN  \cite{19} splits GCNs workloads into \textit{Aggregation and Combination} phases.
-Different hardware structures and dataflows are designed for two phases respectively.
+AWB-GCN \cite{17} combined offline software averaging and runtime hardware workloads balancing on several large graph datasets.
+Zhang et al. \cite{18} partitioned input data into smaller segments, then perform graph sparsification and node re-ordering for computation reduction and data locality.
+Hy-GCN  \cite{19} split GCNs workloads into \textit{Aggregation and Combination} phases.
+Different hardware structures and dataflows were designed for two phases respectively.
 To sum up, above works focus on: (i) Leveraging and expanding graph adjacency matrixes sparsity,
-(ii) Avoiding irregularity and randomness of data distribution in graph computation, (
-iii) Keeping balanced workloads between PEs or computing phases, via offline and online ways.
+(ii) Avoiding irregularity and randomness of data distribution in graph computation,
+(iii) Keeping balanced workloads between PEs or computing phases, via offline and online ways.
 Unfortunately, graph in skeleton-based GCNs for action recognition models is dense and unchangeable.
 The data sparsity is embedded in temporal feature and pruned weights, not the graph.
 Moreover, action recognition GCNs behave not only like CNNs, but also like graph processing, leading to graph-specific design requirements.
@@ -256,7 +256,7 @@ Therefore, current specialized architectures on CNNs and GCNs cannot efficiently
 \section{Methodology}
 This section introduces our hybrid pruning method for action recognition GCNs. The dataflow reorganization, coarse-grained and fine-grained pruning on temporal convolution are described respectively.
 \subsection{Dataflow Reorganization}
-After clipping self-similarity graph, the computing flow between graph and spatial convolution can be further summarized as \eqref{eq3}, where $G_{k}$ denotes $A_{k}+B_{k}$ from \eqref{eq2} and $\bigotimes$ represents convolution operation. The computing order is first high-dimensional matrix multiplication with $G_{k}$, then the spatial convolution of $W_{k}$ and finally the result merging of three loops. In this dataflow, common pruning methods only functions in second phase but cannot optimize the graph computation, which occupies 49.83\% of total workloads in \eqref{eq3}.
+After clipping self-similarity graph, the computing flow between graph and spatial convolution can be further summarized as \eqref{eq3}, where $G_{k}$ denotes $A_{k}+B_{k}$ from \eqref{eq2}. The computing order is first high-dimensional matrix multiplication with $G_{k}$, then the spatial convolution of $W_{k}$ and finally the result merging of three loops. In this dataflow, common pruning methods only functions in second phase but cannot optimize the graph computation, which occupies 49.83\% of total workloads in \eqref{eq3}.
 
 \begin{equation}
 f_{out}=\sum_{k}^{k_{\nu}}f_{in}G_{k}\bigotimes W_{k}\label{eq3}
@@ -508,7 +508,7 @@ Although V100 has 14TFLOPS of peak performance on float data, our pruning method
 Moreover, our layer-pipelined structure does not need to exchange data with peripheral memory except for loading original input, which further increases performance.
 Compared with two main-stream GPUs, our accelerator provides 1.36x-9.19x of speedup, showing competitive performance.
 \section{Conclusion}
-In this article, we propose a software-hardware co-design: RFC-HyPGCN, including hybrid pruning method and a runtime sparse feature compress architecture with layer-pipeline. Firstly, a hybrid pruning method specific on action recognition GCNs is explored on 2s-AGCN. Secondly, we propose an architecture based on balanced pruned model. Finally, a runtime sparse feature compact format is designed to reduce zero-storage between layers. Experiments demonstrate that compared with conventional unstructured pruning, our method achieves better accuracy performance in most cases. The accelerator is implemented on Xilinx XCKU-115 FPGA. At the cost of negligible working delay, RFC reduces 35.93\% of used BRAM and 23.24\% of DSPs. over another work on accelerating action recognition GCNs, ours provides 22.62x speed-up and 59.41\% elevation on DSP efficiency. On contrast to high-end GPUs, RFC-HyPGCN achieves 1.36x-9.47x speed-up on throughput.
+In this article, we propose a software-hardware co-design for action recognition GCNs: RFC-HyPGCN, including hybrid pruning method and a runtime sparse feature compress architecture with layer-pipeline. Firstly, a hybrid pruning method specific on action recognition GCNs is explored on 2s-AGCN. Secondly, we propose an architecture based on balanced pruned model. Finally, a runtime sparse feature compact format is designed to reduce zero-storage between layers. Experiments demonstrate that compared with conventional unstructured pruning, our method achieves better accuracy performance in most cases. The accelerator is implemented on Xilinx XCKU-115 FPGA. At the cost of negligible working delay, RFC reduces 35.93\% of used BRAM and 23.24\% of DSPs. Ours provides 22.62x speed-up and 59.41\% elevation on DSP efficiency over another work on accelerating action recognition GCNs. On contrast to high-end GPUs, RFC-HyPGCN achieves 1.36x-9.47x speed-up on throughput.
 %
 %The IEEEtran class file is used to format your paper and style the text. All margins,
 %column widths, line spaces, and text fonts are prescribed; please do not

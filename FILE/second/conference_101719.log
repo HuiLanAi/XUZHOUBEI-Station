@@ -1,10 +1,13 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2021.4.11)  13 APR 2021 09:51
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2021.6.16)  16 JUN 2021 20:32
 entering extended mode
-**C:/Users/Administrator/Desktop/second/conference_101719.tex
-(C:/Users/Administrator/Desktop/second/conference_101719.tex
+**C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/conference_10171
+9.tex
+
+(C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/conference_101719
+.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for loaded.
-(C:\Users\Administrator\Desktop\second\IEEEtran.cls
+(C:\Users\310-w\Desktop\TempGit\XUZHOUBEI-Station\FILE\second\IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -17,7 +20,7 @@ Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
 
-(C:\CTEX\MiKTeX\tex\latex\psnfss\ot1ptm.fd
+(F:\CTEX\MiKTeX\tex\latex\psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
@@ -113,29 +116,29 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \@IEEEtranrubishbin=\box27
 )
 ** ATTENTION: Overriding command lockouts (line 2).
-(C:\CTEX\MiKTeX\tex\latex\cite\cite.sty
+(F:\CTEX\MiKTeX\tex\latex\cite\cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 373.
 Package: cite 2010/09/10  v 5.3
 )
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty
+(F:\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty
+(F:\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty
+(F:\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks15
 \ex@=\dimen126
 ))
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty
+(F:\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen127
 )
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty
+(F:\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count94
@@ -176,23 +179,23 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty
+(F:\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty
 Package: amssymb 2009/06/22 v3.00
 
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty
+(F:\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(C:\CTEX\MiKTeX\tex\latex\algorithms\algorithmic.sty
+(F:\CTEX\MiKTeX\tex\latex\algorithms\algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 
-(C:\CTEX\MiKTeX\tex\latex\base\ifthen.sty
+(F:\CTEX\MiKTeX\tex\latex\base\ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(C:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty
+(F:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks20
 )
@@ -203,27 +206,27 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \ALC@tlm=\skip47
 \algorithmicindent=\skip48
 )
-(C:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
+(F:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
+(F:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\CTEX\MiKTeX\tex\latex\graphics\trig.sty
+(F:\CTEX\MiKTeX\tex\latex\graphics\trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(C:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg
+(F:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(C:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def
+(F:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty
+(F:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
 )
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
+(F:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
 Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count110
@@ -231,7 +234,7 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
 )
-(C:\CTEX\MiKTeX\tex\latex\base\textcomp.sty
+(F:\CTEX\MiKTeX\tex\latex\base\textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -246,7 +249,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-(C:\CTEX\MiKTeX\tex\latex\base\ts1enc.def
+(F:\CTEX\MiKTeX\tex\latex\base\ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 266.
@@ -312,10 +315,10 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-(C:\CTEX\MiKTeX\tex\latex\xcolor\xcolor.sty
+(F:\CTEX\MiKTeX\tex\latex\xcolor\xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-(C:\CTEX\MiKTeX\tex\latex\00miktex\color.cfg
+(F:\CTEX\MiKTeX\tex\latex\00miktex\color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -329,7 +332,8 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(C:\Users\Administrator\Desktop\second\conference_101719.aux)
+(C:\Users\310-w\Desktop\TempGit\XUZHOUBEI-Station\FILE\second\conference_101719
+.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
@@ -344,14 +348,13 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 16.
-
-(C:\CTEX\MiKTeX\tex\latex\base\ts1cmr.fd
+ (F:\CTEX\MiKTeX\tex\latex\base\ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 16.
 
 -- Lines per column: 56 (exact).
-(C:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
+(F:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count111
 \scratchdimen=\dimen137
@@ -382,18 +385,18 @@ Underfull \hbox (badness 5036) in paragraph at lines 103--109
 
 Missing character: There is no ¡ in font ptmb7t!
 Missing character: There is no ¯ in font ptmb7t!
-[1{C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}
+[1{F:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}
 
 
 ]
 LaTeX Font Info:    Try loading font information for U+msa on input line 165.
 
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
+(F:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 165.
 
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
+(F:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 Underfull \hbox (badness 1377) in paragraph at lines 166--168
@@ -413,28 +416,27 @@ File: myfig2.pdf Graphic file (type pdf)
  <use myfig2.pdf>
 Package pdftex.def Info: myfig2.pdf used on input line 219.
 (pdftex.def)             Requested size: 216.71906pt x 50.46701pt.
- [2 <C:/Users/Administrator/Desktop/second/myfig1.pdf>] [3 <C:/Users/Administra
-tor/Desktop/second/myfig2.pdf>] <myfig4.pdf, id=1973, 767.80853pt x 577.97934pt
->
+ [2 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig1.pdf>] 
+[3 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig2.pdf>]
+<myfig4.pdf, id=1973, 767.80853pt x 577.97934pt>
 File: myfig4.pdf Graphic file (type pdf)
-
-<use myfig4.pdf>
+ <use myfig4.pdf>
 Package pdftex.def Info: myfig4.pdf used on input line 291.
 (pdftex.def)             Requested size: 165.12378pt x 124.29842pt.
- <myfig5.pdf, id=1974, 1925.90916pt x 797.66605pt>
-File: myfig5.pdf Graphic file (type pdf)
 
-<use myfig5.pdf>
+<myfig5.pdf, id=1974, 1925.90916pt x 797.66605pt>
+File: myfig5.pdf Graphic file (type pdf)
+ <use myfig5.pdf>
 Package pdftex.def Info: myfig5.pdf used on input line 299.
 (pdftex.def)             Requested size: 232.19843pt x 96.16612pt.
- <myfig6.pdf, id=1975, 771.65291pt x 348.87036pt>
-File: myfig6.pdf Graphic file (type pdf)
 
-<use myfig6.pdf>
+<myfig6.pdf, id=1975, 771.65291pt x 348.87036pt>
+File: myfig6.pdf Graphic file (type pdf)
+ <use myfig6.pdf>
 Package pdftex.def Info: myfig6.pdf used on input line 313.
 (pdftex.def)             Requested size: 216.71906pt x 97.98112pt.
- [4 <C:/Users/Administrator/Desktop/second/myfig4.pdf> <C:/Users/Administrator/
-Desktop/second/myfig5.pdf>]
+ [4 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig4.pdf> <
+C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig5.pdf>]
 <myfig7.pdf, id=3920, 747.01079pt x 291.71083pt>
 File: myfig7.pdf Graphic file (type pdf)
  <use myfig7.pdf>
@@ -442,23 +444,24 @@ Package pdftex.def Info: myfig7.pdf used on input line 323.
 (pdftex.def)             Requested size: 216.71906pt x 84.62958pt.
 
 
-pdfTeX warning: pdflatex.exe (file C:/Users/Administrator/Desktop/second/myfig8
-.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowe
-d
+pdfTeX warning: pdflatex.exe (file C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Sta
+tion/FILE/second/myfig8.pdf): PDF inclusion: found PDF version <1.6>, but at mo
+st version <1.5> allowed
 <myfig8.pdf, id=3921, 796.24405pt x 541.98083pt>
 File: myfig8.pdf Graphic file (type pdf)
  <use myfig8.pdf>
 Package pdftex.def Info: myfig8.pdf used on input line 342.
 (pdftex.def)             Requested size: 216.71906pt x 147.51111pt.
- [5 <C:/Users/Administrator/Desktop/second/myfig6.pdf> <C:/Users/Administrator/
-Desktop/second/myfig7.pdf>]
+ [5 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig6.pdf> <
+C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig7.pdf>]
 Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
 Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
 Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
- <myfig9.pdf, id=5867, 476.5494pt x 384.91pt>
+
+<myfig9.pdf, id=5867, 476.5494pt x 384.91pt>
 File: myfig9.pdf Graphic file (type pdf)
  <use myfig9.pdf>
 Package pdftex.def Info: myfig9.pdf used on input line 370.
@@ -467,19 +470,18 @@ Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
 Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
-
-[6 <C:/Users/Administrator/Desktop/second/myfig8.pdf, page is rotated 90 degree
-s> <C:/Users/Administrator/Desktop/second/myfig9.pdf>]
-<myfig10.pdf, id=7437, 740.70825pt x 221.02574pt>
+ [6 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig8.pdf, p
+age is rotated 90 degrees> <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FI
+LE/second/myfig9.pdf>] <myfig10.pdf, id=7437, 740.70825pt x 221.02574pt>
 File: myfig10.pdf Graphic file (type pdf)
  <use myfig10.pdf>
 Package pdftex.def Info: myfig10.pdf used on input line 385.
 (pdftex.def)             Requested size: 241.84625pt x 99.58206pt.
 
 
-pdfTeX warning: pdflatex.exe (file C:/Users/Administrator/Desktop/second/myfig1
-1.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allow
-ed
+pdfTeX warning: pdflatex.exe (file C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Sta
+tion/FILE/second/myfig11.pdf): PDF inclusion: found PDF version <1.6>, but at m
+ost version <1.5> allowed
 <myfig11.pdf, id=7438, 362.80545pt x 288.12642pt>
 File: myfig11.pdf Graphic file (type pdf)
  <use myfig11.pdf>
@@ -489,17 +491,18 @@ Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
 
 
-pdfTeX warning: pdflatex.exe (file C:/Users/Administrator/Desktop/second/myfig1
-2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
-ed
+pdfTeX warning: pdflatex.exe (file C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Sta
+tion/FILE/second/myfig12.pdf): PDF inclusion: found PDF version <1.7>, but at m
+ost version <1.5> allowed
 <myfig12.pdf, id=7439, 520.34262pt x 213.39223pt>
 File: myfig12.pdf Graphic file (type pdf)
  <use myfig12.pdf>
 Package pdftex.def Info: myfig12.pdf used on input line 498.
 (pdftex.def)             Requested size: 232.19843pt x 95.22461pt.
- [7 <C:/Users/Administrator/Desktop/second/myfig10.pdf> <C:/Users/Administrator
-/Desktop/second/myfig11.pdf>] (C:\Users\Administrator\Desktop\second\conference
-_101719.bbl)
+ [7 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig10.pdf> 
+<C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig11.pdf>]
+(C:\Users\310-w\Desktop\TempGit\XUZHOUBEI-Station\FILE\second\conference_101719
+.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -511,32 +514,33 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8 <C:/Users/Administrator/Desktop/second/myfig12.pdf>]
-(C:\Users\Administrator\Desktop\second\conference_101719.aux) ) 
+[8 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig12.pdf>]
+(C:\Users\310-w\Desktop\TempGit\XUZHOUBEI-Station\FILE\second\conference_101719
+.aux) ) 
 Here is how much of TeX's memory you used:
  4116 strings out of 495354
- 57129 string characters out of 3183859
+ 57382 string characters out of 3183859
  126056 words of memory out of 3000000
  7236 multiletter control sequences out of 15000+200000
  42240 words of font info for 91 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 27i,10n,35p,1514b,262s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/CTEX/MiKTeX/
-fonts/enc/dvips/fontname/8r.enc}<C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmex10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/CT
-EX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/CTEX/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmmi5.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-mi6.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/CTEX/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmmi9.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/CTEX/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr9.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/CTEX/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/CTEX/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmsy9.pfb><C:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/CTE
-X/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/CTEX/MiKTeX/fonts/type1/urw/time
-s/utmr8a.pfb><C:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (8 pages, 8082609 bytes).
+ 27i,10n,35p,1537b,262s stack positions out of 5000i,500n,10000p,200000b,50000s
+{F:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<F:/CTEX/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb><F:/CTEX/MiKTeX/fonts/type1/public/amsfonts/c
+mextra/cmex9.pfb><F:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><F:/
+CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><F:/CTEX/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi6.pfb><F:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb><F:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><F:/CTEX/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><F:/CTEX/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmr10.pfb><F:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+F:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><F:/CTEX/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr9.pfb><F:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb><F:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><F:/CTEX/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><F:/CTEX/MiKTeX/fonts/type1/urw/t
+imes/utmb8a.pfb><F:/CTEX/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><F:/CTEX/MiKT
+eX/fonts/type1/urw/times/utmr8a.pfb><F:/CTEX/MiKTeX/fonts/type1/urw/times/utmri
+8a.pfb>
+Output written on conference_101719.pdf (8 pages, 8082859 bytes).
 PDF statistics:
  9080 PDF objects out of 10688 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
