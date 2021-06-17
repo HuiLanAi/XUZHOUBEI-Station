@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2021.6.16)  16 JUN 2021 21:16
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2021.6.16)  17 JUN 2021 10:34
 entering extended mode
 **C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/conference_10171
 9.tex
@@ -403,11 +403,16 @@ Underfull \hbox (badness 1377) in paragraph at lines 166--168
 \OT1/ptm/m/n/10 our method is bet-ter than con-ven-tion-al prun-ing on
  []
 
-<myfig1.pdf, id=9, 753.91261pt x 191.19429pt>
+
+
+pdfTeX warning: pdflatex.exe (file C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Sta
+tion/FILE/second/myfig1.pdf): PDF inclusion: found PDF version <1.7>, but at mo
+st version <1.5> allowed
+<myfig1.pdf, id=9, 779.56804pt x 180.74928pt>
 File: myfig1.pdf Graphic file (type pdf)
  <use myfig1.pdf>
 Package pdftex.def Info: myfig1.pdf used on input line 180.
-(pdftex.def)             Requested size: 216.71906pt x 54.96063pt.
+(pdftex.def)             Requested size: 216.71906pt x 50.24814pt.
 Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
 
@@ -418,26 +423,26 @@ Package pdftex.def Info: myfig2.pdf used on input line 219.
 (pdftex.def)             Requested size: 216.71906pt x 50.46701pt.
  [2 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig1.pdf>] 
 [3 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig2.pdf>]
-<myfig4.pdf, id=1973, 767.80853pt x 577.97934pt>
+<myfig4.pdf, id=1009, 767.80853pt x 577.97934pt>
 File: myfig4.pdf Graphic file (type pdf)
  <use myfig4.pdf>
 Package pdftex.def Info: myfig4.pdf used on input line 291.
 (pdftex.def)             Requested size: 165.12378pt x 124.29842pt.
 
-<myfig5.pdf, id=1974, 1925.90916pt x 797.66605pt>
+<myfig5.pdf, id=1010, 1925.90916pt x 797.66605pt>
 File: myfig5.pdf Graphic file (type pdf)
  <use myfig5.pdf>
 Package pdftex.def Info: myfig5.pdf used on input line 299.
 (pdftex.def)             Requested size: 232.19843pt x 96.16612pt.
 
-<myfig6.pdf, id=1975, 771.65291pt x 348.87036pt>
+<myfig6.pdf, id=1011, 771.65291pt x 348.87036pt>
 File: myfig6.pdf Graphic file (type pdf)
  <use myfig6.pdf>
 Package pdftex.def Info: myfig6.pdf used on input line 313.
 (pdftex.def)             Requested size: 216.71906pt x 97.98112pt.
  [4 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig4.pdf> <
 C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig5.pdf>]
-<myfig7.pdf, id=3921, 747.01079pt x 291.71083pt>
+<myfig7.pdf, id=2957, 747.01079pt x 291.71083pt>
 File: myfig7.pdf Graphic file (type pdf)
  <use myfig7.pdf>
 Package pdftex.def Info: myfig7.pdf used on input line 323.
@@ -447,7 +452,7 @@ Package pdftex.def Info: myfig7.pdf used on input line 323.
 pdfTeX warning: pdflatex.exe (file C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Sta
 tion/FILE/second/myfig8.pdf): PDF inclusion: found PDF version <1.6>, but at mo
 st version <1.5> allowed
-<myfig8.pdf, id=3922, 796.24405pt x 541.98083pt>
+<myfig8.pdf, id=2958, 796.24405pt x 541.98083pt>
 File: myfig8.pdf Graphic file (type pdf)
  <use myfig8.pdf>
 Package pdftex.def Info: myfig8.pdf used on input line 342.
@@ -461,7 +466,7 @@ Missing character: There is no ¯ in font ptmr7t!
 Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
 
-<myfig9.pdf, id=5868, 476.5494pt x 384.91pt>
+<myfig9.pdf, id=4904, 476.5494pt x 384.91pt>
 File: myfig9.pdf Graphic file (type pdf)
  <use myfig9.pdf>
 Package pdftex.def Info: myfig9.pdf used on input line 370.
@@ -472,7 +477,7 @@ Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
  [6 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig8.pdf, p
 age is rotated 90 degrees> <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FI
-LE/second/myfig9.pdf>] <myfig10.pdf, id=7438, 740.70825pt x 221.02574pt>
+LE/second/myfig9.pdf>] <myfig10.pdf, id=6474, 740.70825pt x 221.02574pt>
 File: myfig10.pdf Graphic file (type pdf)
  <use myfig10.pdf>
 Package pdftex.def Info: myfig10.pdf used on input line 385.
@@ -482,7 +487,7 @@ Package pdftex.def Info: myfig10.pdf used on input line 385.
 pdfTeX warning: pdflatex.exe (file C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Sta
 tion/FILE/second/myfig11.pdf): PDF inclusion: found PDF version <1.6>, but at m
 ost version <1.5> allowed
-<myfig11.pdf, id=7439, 362.80545pt x 288.12642pt>
+<myfig11.pdf, id=6475, 362.80545pt x 288.12642pt>
 File: myfig11.pdf Graphic file (type pdf)
  <use myfig11.pdf>
 Package pdftex.def Info: myfig11.pdf used on input line 402.
@@ -494,7 +499,7 @@ Missing character: There is no ¯ in font ptmr7t!
 pdfTeX warning: pdflatex.exe (file C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Sta
 tion/FILE/second/myfig12.pdf): PDF inclusion: found PDF version <1.7>, but at m
 ost version <1.5> allowed
-<myfig12.pdf, id=7440, 520.34262pt x 213.39223pt>
+<myfig12.pdf, id=6476, 520.34262pt x 213.39223pt>
 File: myfig12.pdf Graphic file (type pdf)
  <use myfig12.pdf>
 Package pdftex.def Info: myfig12.pdf used on input line 498.
@@ -502,8 +507,7 @@ Package pdftex.def Info: myfig12.pdf used on input line 498.
  [7 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig10.pdf> 
 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig11.pdf>]
 (C:\Users\310-w\Desktop\TempGit\XUZHOUBEI-Station\FILE\second\conference_101719
-.bbl [8 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig12.p
-df>])
+.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -515,9 +519,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[9
-
-]
+[8 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig12.pdf>]
 (C:\Users\310-w\Desktop\TempGit\XUZHOUBEI-Station\FILE\second\conference_101719
 .aux) ) 
 Here is how much of TeX's memory you used:
@@ -543,9 +545,9 @@ KTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><F:/CTEX/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy9.pfb><F:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><F:/CT
 EX/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><F:/CTEX/MiKTeX/fonts/type1/urw/tim
 es/utmr8a.pfb><F:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (9 pages, 8091392 bytes).
+Output written on conference_101719.pdf (8 pages, 7117587 bytes).
 PDF statistics:
- 9087 PDF objects out of 10688 (max. 8388607)
+ 8120 PDF objects out of 8907 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
