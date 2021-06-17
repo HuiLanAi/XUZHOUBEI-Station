@@ -216,7 +216,7 @@ Table.~\ref{tab1} demonstrates the computing cost of self-similarity. The runnin
 \end{center}
 \end{table}
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.42\textwidth]{myfig2.pdf}}
+pp\centerline{\includegraphics[width=0.42\textwidth]{myfig2.pdf}}
 \caption{The neighbour connection between temporal convolutional output and spatial convolutional input.}\label{myfig2}
 \end{figure}
 Following the spatial convolution, temporal convolutional layer is set at the end of each convolutional block.
@@ -239,7 +239,7 @@ With weight-stationary dataflow designed on FPGA, Li et al. improved the computi
 However, this work still occupied storage space for huge scale of zero data like Lu et al., and its simple hardware structure could not tackle complex workloads in our task.
 
 \textbf{GCN Accelerators on FPGA.} Many works on accelerating large graph's GCNs based on FPGA are presented in recent time.
-AWB-GCN \cite{17} combined offline software averaging and runtime hardware workloads balancing on several large graph datasets.
+AWB-GCN \cite{17} combined dynamic hardware configuration and runtime hardware workloads balancing on several large graph datasets.
 Zhang et al. \cite{18} partitioned input data into smaller segments, then perform graph sparsification and node re-ordering for computation reduction and data locality.
 Hy-GCN  \cite{19} split GCNs workloads into \textit{Aggregation and Combination} phases.
 Different hardware structures and dataflows were designed for two phases respectively.
@@ -303,7 +303,7 @@ Conventional unstructured pruning methods randomly drop the weight elements with
 
 This section introduces the detailed architecture of our accelerator, where all pruned convolutional blocks are mapped on chip.
 
-\emph{Overview}: Fig.~\ref{myfig5} depicts the overall design of our layer-pipelined architecture. Conv block module constitutes the whole architecture, containing one spatial conv module (SCM) and one temporal conv module (TCM). To be more detailed, one conv block module processes on convolution block. Due that proposed pruning method reduces model size, all parameters and graph are stored in ROM storage on chip. Mult-PE is the basic computing unit of SCM, while Dyn-MultPE is the basic unit in TCM. Moreover, runtime sparse feature compression module (RFC) functions at the junctions of different layers to compact and store temporal results.
+\emph{Overview}: Fig.~\ref{myfig5} depicts the overall design of our layer-pipelined architecture. Conv block module constitutes the whole architecture, containing one spatial conv module (SCM) and one temporal conv module (TCM). To be more detailed, one conv block module processes on convolution block. Due that proposed pruning method reduces model size, all parameters and graph are stored in ROM storage on chip. Mult-PE is the basic computing unit of SCM, while Dyn-Mult-PE is the basic unit in TCM. Moreover, runtime sparse feature compression module (RFC) functions at the junctions of different layers to compact and store temporal results.
 
 \subsection{Spatial Conv Module}
 The main task of SCM is performing graph computation and pruned spatial convolution. Data-fetch controls the address of data-loading and decodes compact feature into sparse form, which is prepared for computing. Feature buffer receives and stores decoded data in order. The decoding process will be explained later. Sparse feature will first multiply with graph vectors, then conduct convolution with non-zero weight in Mult-PEs. Pruned channels are skipped and multiplication results are summed up in accumulating buffer on output channel. After batch-normalization operation, dataflow merges with original input activation, which is stored in shortcut feature buffer. ReLU function is combined with encoding function parts.
@@ -317,17 +317,17 @@ In order to combine graph computation and pruned convolution workloads, dataflow
 Feature element is broadcast to all Mult-PEs. In the same channel-first order, weight ROM sends different filters' parameters into computing units. To match the pruned model, only non-zero weights are stored. Each Mult-PEs includes four DSPs, and by adjusting the number of Mult-PE, our design can fit into different layers. Results from parallel Mult-PEs are accumulated and buffered on channel direction as well. When the sum counter reaches the number of valid channels, current data will be transferred into post-processing modules.
 
 \subsection{Temporal Conv Module}
-TCM is designed to accelerate temporal convolution workloads, whose kernel size is $9\times1$. Fig.~\ref{myfig7} shows the detailed information of TCM. Similarly, feature buffer stores decoded data from data-fetch. However, buffer width is turned from 25-data into 9-data, and the depth is tuned for holding an $9\times25\times in\_c$ area of feature tensor. Additionally, feature's one-hot code is sent from data-fetch to feature hot storage as well. Valid weight together with its masks is stored on chip. As depicted in Fig.~\ref{myfig4}, several balanced fine-grained pruning schemes are conducted on leftover filters in recurrent ways, providing opportunities for structured weight storage. One temporal filter is divided into several $1\times 1\times 16$ sub-filters, thus, parameters can be folded into sub-filters format and then be stored in a recurrent mode. Moreover, Dyn-MultPEs are put across input channel and parallelizes on filter's rows. There are two reasons: (i) This parallel scheme can directly skip the abandoned filters in coarse-grained pruning, (ii) Each row of sub-filters is taken by one Dyn-MultPE and each function part handles one row of weight tensor. In this way, one Dyn-MultPE only needs to process weights derived from static cavity mask, such as four or six weights in Fig.~\ref{myfig7}. This design further eliminates data irregularity and scheduling uncontrollability.
+TCM is designed to accelerate temporal convolution workloads, whose kernel size is $9\times1$. Fig.~\ref{myfig7} shows the detailed information of TCM. Similarly, feature buffer stores decoded data from data-fetch. However, buffer width is turned from 25-data into 9-data, and the depth is tuned for holding an $9\times25\times in\_c$ area of feature tensor. Additionally, feature's one-hot code is sent from data-fetch to feature hot storage as well. Valid weight together with its masks is stored on chip. As depicted in Fig.~\ref{myfig4}, several balanced fine-grained pruning schemes are conducted on leftover filters in recurrent ways, providing opportunities for structured weight storage. One temporal filter is divided into several $1\times 1\times 16$ sub-filters, thus, parameters can be folded into sub-filters format and then be stored in a recurrent mode. Moreover, Dyn-Mult-PEs are put across input channel and parallelizes on filter's rows. There are two reasons: (i) This parallel scheme can directly skip the abandoned filters in coarse-grained pruning, (ii) Each row of sub-filters is taken by one Dyn-Mult-PE and each function part handles one row of weight tensor. In this way, one Dyn-Mult-PE only needs to process weights derived from static cavity mask, such as four or six weights in Fig.~\ref{myfig7}. This design further eliminates data irregularity and scheduling uncontrollability.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=0.42\textwidth]{myfig7.pdf}}
 \caption{Illustration of TCM's dataflow.}\label{myfig7}
 \end{figure}
-Shown in Fig.~\ref{myfig7}, one row of a sub-filter is assigned to a Dyn-MultPE, which includes four or six waiting queues and several DSPs.
+Shown in Fig.~\ref{myfig7}, one row of a sub-filter is assigned to a Dyn-Mult-PE, which includes four or six waiting queues and several DSPs.
 Logic and operantion is performed first on weight mask and feature mask to skip the zero-feature and dropped weights.
 Then, valid feature enters one waiting queue, which is bonded to a non-zero weight in the sub-filter.
 To decrease the use of DSPs, dynamic data scheduling is designed by dispatching data from busy waiting lines to empty DSPs.
-Because multiplication in a Dyn-MultPE is part of the intra-filter computation, results need to be summed up and afterwards sent to the adder-tree.
+Because multiplication in a Dyn-Mult-PE is part of the intra-filter computation, results need to be summed up and afterwards sent to the adder-tree.
 While dynamic data scheduling has advantages on saving DSP resource, it may increase the working delay at workloads-intensive cases.
 With the help of recurrent fine-grained pruning and statistic sparsity, we calculate the expectation of valid computation in one sub-filter and use it to guide the DSP occupation.
 The detailed method is illustrated in \eqref{eq6}, where the number of kept weight in a sub-filter is assumed as six and $s$ stands for feature sparsity.
@@ -455,7 +455,7 @@ l2.tconv&$<$0.01\%&34.24\%&65.76\%&0.00\%\\
 \end{table}
 
 \textit{RFC:} As stated above, RFC design relies on sparsity distribution.
-To optimize runtime compress storage, we refer to offline sparsity distribution, which is partly shown in Table.~\ref{tab3}.
+To optimize runtime compress storage, we refer to pruned model's offline sparsity distribution, as is partly shown in Table.~\ref{tab3}.
  Feature vectors are divided into four categories by their sparsity: 75\%-100\% (I), 50\%-75\% (II), 25\%-50\% (III) and 0\%-25\% (IV).
  According to our RFC design, vector of first category occupies one mini-bank, ones in II takes two, III takes three and IV takes four mini-banks.
  We can thus get the total BRAM blocks used for RFC structure. Comparison in Fig. 11 indicates that our RFC design brings 35.93\% reduction on occupied BRAM blocks.

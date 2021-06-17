@@ -139,7 +139,7 @@ The subtle elements in such graph are proved to be positively associated with pr
 For instance, in 2s-AGCN model, the prediction accuracy decreases by 2.3\% without learnable matrix \cite{9}.
 Although Ding et al. \cite{10} present a FPGA-based work on accelerating ST-GCN, a smaller action recognition GCNs, their work falls short on more complex models for (i) They
 do not prune the target model. (ii) They choose to compress sparse static skeleton graph, while skeleton relationship matrix in some models can be dense. (iii) Only sparsity graph is
-optimized for computation, while feature sparsity is not utilized. (iv) Their single-PE design cannot meet performance requirement of application scenarios.
+optimized for computation, while feature sparsity is not utilized. (iv) Their single-PE design cannot meet performance requirement of application scenarios. To summarize, such GCN models with dense matrixes bring new challenges for architecture.
 
 For these reasons, efficient pruning methods together with specific accelerator designs are urgently required to accelerate GCNs action recognition workloads.
 To this end, we present RFC-HyPGCN: a runtime sparse feature compress accelerator for skeleton-based GCNs action recognition model with hybrid pruning in this paper.
@@ -209,14 +209,14 @@ Table.~\ref{tab1} demonstrates the computing cost of self-similarity. The runnin
 \hline
 2sAGCN(w/C)&93.70\%&69.38 fps&0.28 fsp/watt \\
 \hline
-2sAGCN(w/o C)&93.40\%&98.87 fps&0.40 fps/watt \\
+2sAGCN(w/oC)&93.40\%&98.87 fps&0.40 fps/watt \\
 \hline
 \end{tabular}
 \label{tab1}
 \end{center}
 \end{table}
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.42\textwidth]{myfig2.pdf}}
+pp\centerline{\includegraphics[width=0.42\textwidth]{myfig2.pdf}}
 \caption{The neighbour connection between temporal convolutional output and spatial convolutional input.}\label{myfig2}
 \end{figure}
 Following the spatial convolution, temporal convolutional layer is set at the end of each convolutional block.
@@ -289,7 +289,7 @@ Moreover, this neighbour connection is hardware-friendly for that the number of 
 This inherent feature supports a balanced layer-pipelined architecture.
 \begin{figure}[t]
 \centerline{\includegraphics[width=0.32\textwidth]{myfig4.pdf}}
-\caption{The illustration of fine-grained pruning on temporal convolution. White elements are pruned while blue ones are kept. Every 9x1 kernel performs on time series of skeleton vectors, and the blue vectors are sampled by first pruning scheme.}\label{myfig4}
+\caption{The illustration of fine-grained pruning on temporal convolution. White elements are pruned while blue ones are kept. Every 9$\times$1 kernel performs on time series of skeleton vectors, and the blue vectors are sampled by first pruning scheme.}\label{myfig4}
 \end{figure}
 
 Coarse-grained pruning can provide 49.83\%-88.96\% compression ratio on temporal filters, depending on the pruning scheme in data organization phase. To further prune temporal convolutional weights, fine-grained pruning is proposed. The point of fine-grained method is that in temporal convolution, zero weight means not sampling current vectors in time order. Fig.~\ref{myfig4} demonstrates details of sampling-like fine-grained pruning method. Several pruning schemes with different intervals and offsets are conducted on filters recurrently. By this means, the design of pruning scheme is turned into a sampling problem. We can simulate various sampling schemes on filters, with different sampling frequencies and phases represented by intervals and offsets. Experiments show that with proper pruning scheme, our fine-grained method can keep accuracy as well as discarding unimportant weight.
@@ -303,7 +303,7 @@ Conventional unstructured pruning methods randomly drop the weight elements with
 
 This section introduces the detailed architecture of our accelerator, where all pruned convolutional blocks are mapped on chip.
 
-\emph{Overview}: Fig.~\ref{myfig5} depicts the overall design of our layer-pipelined architecture. Conv block module constitutes the whole architecture, containing one spatial conv module (SCM) and one temporal conv module (TCM). To be more detailed, one conv block module processes on convolution block. Due that proposed pruning method reduces model size, all parameters and graph are stored in ROM storage on chip. Mult-PE is the basic computing unit of SCM, while Dyn-MultPE is the basic unit in TCM. Moreover, runtime sparse feature compression module (RFC) functions at the junctions of different layers to compact and store temporal results.
+\emph{Overview}: Fig.~\ref{myfig5} depicts the overall design of our layer-pipelined architecture. Conv block module constitutes the whole architecture, containing one spatial conv module (SCM) and one temporal conv module (TCM). To be more detailed, one conv block module processes on convolution block. Due that proposed pruning method reduces model size, all parameters and graph are stored in ROM storage on chip. Mult-PE is the basic computing unit of SCM, while Dyn-Mult-PE is the basic unit in TCM. Moreover, runtime sparse feature compression module (RFC) functions at the junctions of different layers to compact and store temporal results.
 
 \subsection{Spatial Conv Module}
 The main task of SCM is performing graph computation and pruned spatial convolution. Data-fetch controls the address of data-loading and decodes compact feature into sparse form, which is prepared for computing. Feature buffer receives and stores decoded data in order. The decoding process will be explained later. Sparse feature will first multiply with graph vectors, then conduct convolution with non-zero weight in Mult-PEs. Pruned channels are skipped and multiplication results are summed up in accumulating buffer on output channel. After batch-normalization operation, dataflow merges with original input activation, which is stored in shortcut feature buffer. ReLU function is combined with encoding function parts.
@@ -317,17 +317,17 @@ In order to combine graph computation and pruned convolution workloads, dataflow
 Feature element is broadcast to all Mult-PEs. In the same channel-first order, weight ROM sends different filters' parameters into computing units. To match the pruned model, only non-zero weights are stored. Each Mult-PEs includes four DSPs, and by adjusting the number of Mult-PE, our design can fit into different layers. Results from parallel Mult-PEs are accumulated and buffered on channel direction as well. When the sum counter reaches the number of valid channels, current data will be transferred into post-processing modules.
 
 \subsection{Temporal Conv Module}
-TCM is designed to accelerate temporal convolution workloads, whose kernel size is $9\times1$. Fig.~\ref{myfig7} shows the detailed information of TCM. Similarly, feature buffer stores decoded data from data-fetch. However, buffer width is turned from 25-data into 9-data, and the depth is tuned for holding an $9\times25\times in\_c$ area of feature tensor. Additionally, feature's one-hot code is sent from data-fetch to feature hot storage as well. Valid weight together with its masks is stored on chip. As depicted in Fig.~\ref{myfig4}, several balanced fine-grained pruning schemes are conducted on leftover filters in recurrent ways, providing opportunities for structured weight storage. One temporal filter is divided into several $1\times 1\times 16$ sub-filters, thus, parameters can be folded into sub-filters format and then be stored in a recurrent mode. Moreover, Dyn-MultPEs are put across input channel and parallelizes on filter's rows. There are two reasons: (i) This parallel scheme can directly skip the abandoned filters in coarse-grained pruning, (ii) Each row of sub-filters is taken by one Dyn-MultPE and each function part handles one row of weight tensor. In this way, one Dyn-MultPE only needs to process weights derived from static cavity mask, such as four or six weights in Fig.~\ref{myfig7}. This design further eliminates data irregularity and scheduling uncontrollability.
+TCM is designed to accelerate temporal convolution workloads, whose kernel size is $9\times1$. Fig.~\ref{myfig7} shows the detailed information of TCM. Similarly, feature buffer stores decoded data from data-fetch. However, buffer width is turned from 25-data into 9-data, and the depth is tuned for holding an $9\times25\times in\_c$ area of feature tensor. Additionally, feature's one-hot code is sent from data-fetch to feature hot storage as well. Valid weight together with its masks is stored on chip. As depicted in Fig.~\ref{myfig4}, several balanced fine-grained pruning schemes are conducted on leftover filters in recurrent ways, providing opportunities for structured weight storage. One temporal filter is divided into several $1\times 1\times 16$ sub-filters, thus, parameters can be folded into sub-filters format and then be stored in a recurrent mode. Moreover, Dyn-Mult-PEs are put across input channel and parallelizes on filter's rows. There are two reasons: (i) This parallel scheme can directly skip the abandoned filters in coarse-grained pruning, (ii) Each row of sub-filters is taken by one Dyn-Mult-PE and each function part handles one row of weight tensor. In this way, one Dyn-Mult-PE only needs to process weights derived from static cavity mask, such as four or six weights in Fig.~\ref{myfig7}. This design further eliminates data irregularity and scheduling uncontrollability.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=0.42\textwidth]{myfig7.pdf}}
 \caption{Illustration of TCM's dataflow.}\label{myfig7}
 \end{figure}
-Shown in Fig.~\ref{myfig7}, one row of a sub-filter is assigned to a Dyn-MultPE, which includes four or six waiting queues and several DSPs.
+Shown in Fig.~\ref{myfig7}, one row of a sub-filter is assigned to a Dyn-Mult-PE, which includes four or six waiting queues and several DSPs.
 Logic and operantion is performed first on weight mask and feature mask to skip the zero-feature and dropped weights.
 Then, valid feature enters one waiting queue, which is bonded to a non-zero weight in the sub-filter.
 To decrease the use of DSPs, dynamic data scheduling is designed by dispatching data from busy waiting lines to empty DSPs.
-Because multiplication in a Dyn-MultPE is part of the intra-filter computation, results need to be summed up and afterwards sent to the adder-tree.
+Because multiplication in a Dyn-Mult-PE is part of the intra-filter computation, results need to be summed up and afterwards sent to the adder-tree.
 While dynamic data scheduling has advantages on saving DSP resource, it may increase the working delay at workloads-intensive cases.
 With the help of recurrent fine-grained pruning and statistic sparsity, we calculate the expectation of valid computation in one sub-filter and use it to guide the DSP occupation.
 The detailed method is illustrated in \eqref{eq6}, where the number of kept weight in a sub-filter is assumed as six and $s$ stands for feature sparsity.
@@ -351,12 +351,13 @@ Another issue on compact storage is to determine the volume of each mini-bank. L
 
 \section{Experiments}
 In this section, we evaluate our design on both software and hardware views.
-Our pruning method is explored on one V100 GPU using PyTorch, and accelerator architecture is implemented with Verilog HDL on Vivado 2018.3 IDE.
+Our pruning method is explored on one V100 GPU using PyTorch, and accelerator architecture is implemented with Verilog HDL on Vivado 2018.3 IDE. 
 
 \subsection{Validations on Hybrid Pruning Method}
-In our experiments, the proposed hybrid pruning method on 2s-AGCN model is compared with unstructured pruning.
-We also explore the impact of different pruning designs on accuracy,
-e.g.,  various fine-grained pruning schemes for temporal filters and channel-dropping modes in data reorganization phases.
+In experiments, the proposed hybrid pruning method on 2s-AGCN model is compared with unstructured pruning on NTU-RGB+D, 
+which contains 37k training and 18k testing data.
+We explore the impact of different pruning designs on accuracy,
+e.g.,  various fine-grained pruning schemes for temporal filters and channel-dropping modes in reorganization phase.
 
 \textit{Comparison:} Fig.~\ref{myfig9} illustrates the contrast between our hybrid pruning methods and conventional pruning means.
 Both unstructured pruning and hybrid pruning can elevate accuracy for deleting some unimportant weights and improving convergence performance.
@@ -375,7 +376,7 @@ Besides, the input-skip model with 86\% compress ratio still keeps the accuracy 
 To find the best pruning scheme, we conduct isolated experiments respectively. Additionally, based on our dataflow reorganization method, graph-skipping rate equals channel-dropping rate of this phase.
  Guided by feature sparsity in Fig.~\ref{myfig10},
 we first set each layer¡¯s channel pruning rate roughly equals it¡¯s sparsity respectively. For higher parameter reduction ratio,
-we progressively raise compressing rate on layers and observe effect on accuracy, as shown in Fig.~\ref{myfig10}. Drop-1, drop-2, and drop-3 stands for different channel pruning design.
+we progressively raise compressing rate on layers and observe effect on accuracy, as shown in Fig.~\ref{myfig10}. Drop-1, Drop-2, and Drop-3 stands for different channel pruning design.
 The spatial convolutional parameter in block 1 is not pruned for it only has three input channels.
 Also, mix-grained pruning on temporal convolution is excluded to validate data reorganization method.
 It reveals that with compress rate shifting away from base sparsity, model reduction is growing while accuracy is decreasing.
@@ -454,7 +455,7 @@ l2.tconv&$<$0.01\%&34.24\%&65.76\%&0.00\%\\
 \end{table}
 
 \textit{RFC:} As stated above, RFC design relies on sparsity distribution.
-To optimize runtime compress storage, we refer to offline sparsity distribution, which is partly shown in Table.~\ref{tab3}.
+To optimize runtime compress storage, we refer to pruned model's offline sparsity distribution, as is partly shown in Table.~\ref{tab3}.
  Feature vectors are divided into four categories by their sparsity: 75\%-100\% (I), 50\%-75\% (II), 25\%-50\% (III) and 0\%-25\% (IV).
  According to our RFC design, vector of first category occupies one mini-bank, ones in II takes two, III takes three and IV takes four mini-banks.
  We can thus get the total BRAM blocks used for RFC structure. Comparison in Fig. 11 indicates that our RFC design brings 35.93\% reduction on occupied BRAM blocks.
@@ -502,7 +503,7 @@ speed-up&&9.19&3.91&5.97&2.74&2.61&1.36\\
 The resource utilization is demonstrated in Table.~\ref{tab4}, together with comparison with \cite{10}.
 Experiments have proved that our design has superiority on peak performance, throughput and DSP efficiency.
 In Table.~\ref{tab5}, we compare the peak performance of ours and two GPUs.
-The original means testing program is the original version of 2s-AGCN, and the skip means input-skipping is applied.
+The original means testing program is the original version of 2s-AGCN, and the skip means w/oC together with input-skipping is applied.
 To fully use the memory in GPUs, target model runs with 200 or 700 samples in one batch on 2080Ti and V100, respectively.
 Although V100 has 14TFLOPS of peak performance on float data, our pruning methods provides 86\% parameter reductions and 88\% computation skipping efficiency.
 Moreover, our layer-pipelined structure does not need to exchange data with peripheral memory except for loading original input, which further increases performance.
