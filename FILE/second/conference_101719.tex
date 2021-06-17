@@ -351,12 +351,13 @@ Another issue on compact storage is to determine the volume of each mini-bank. L
 
 \section{Experiments}
 In this section, we evaluate our design on both software and hardware views.
-Our pruning method is explored on one V100 GPU using PyTorch, and accelerator architecture is implemented with Verilog HDL on Vivado 2018.3 IDE.
+Our pruning method is explored on one V100 GPU using PyTorch, and accelerator architecture is implemented with Verilog HDL on Vivado 2018.3 IDE. 
 
 \subsection{Validations on Hybrid Pruning Method}
-In our experiments, the proposed hybrid pruning method on 2s-AGCN model is compared with unstructured pruning.
-We also explore the impact of different pruning designs on accuracy,
-e.g.,  various fine-grained pruning schemes for temporal filters and channel-dropping modes in data reorganization phases.
+In experiments, the proposed hybrid pruning method on 2s-AGCN model is compared with unstructured pruning on NTU-RGB+D, 
+which contains 37k training and 18k testing data.
+We explore the impact of different pruning designs on accuracy,
+e.g.,  various fine-grained pruning schemes for temporal filters and channel-dropping modes in reorganization phase.
 
 \textit{Comparison:} Fig.~\ref{myfig9} illustrates the contrast between our hybrid pruning methods and conventional pruning means.
 Both unstructured pruning and hybrid pruning can elevate accuracy for deleting some unimportant weights and improving convergence performance.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2021.6.16)  17 JUN 2021 11:17
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2021.6.16)  17 JUN 2021 11:34
 entering extended mode
 **C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/conference_10171
 9.tex
@@ -473,7 +473,7 @@ st version <1.5> allowed
 <myfig9.pdf, id=4904, 693.79704pt x 566.33684pt>
 File: myfig9.pdf Graphic file (type pdf)
  <use myfig9.pdf>
-Package pdftex.def Info: myfig9.pdf used on input line 370.
+Package pdftex.def Info: myfig9.pdf used on input line 371.
 (pdftex.def)             Requested size: 156.48929pt x 113.80977pt.
 Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
@@ -484,7 +484,7 @@ age is rotated 90 degrees> <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FI
 LE/second/myfig9.pdf>] <myfig10.pdf, id=4926, 740.70825pt x 221.02574pt>
 File: myfig10.pdf Graphic file (type pdf)
  <use myfig10.pdf>
-Package pdftex.def Info: myfig10.pdf used on input line 385.
+Package pdftex.def Info: myfig10.pdf used on input line 386.
 (pdftex.def)             Requested size: 241.84625pt x 99.58206pt.
 
 
@@ -494,7 +494,7 @@ ost version <1.5> allowed
 <myfig11.pdf, id=4927, 362.80545pt x 288.12642pt>
 File: myfig11.pdf Graphic file (type pdf)
  <use myfig11.pdf>
-Package pdftex.def Info: myfig11.pdf used on input line 402.
+Package pdftex.def Info: myfig11.pdf used on input line 403.
 (pdftex.def)             Requested size: 216.71906pt x 172.1122pt.
 Missing character: There is no ¡ in font ptmr7t!
 Missing character: There is no ¯ in font ptmr7t!
@@ -506,7 +506,7 @@ ost version <1.5> allowed
 <myfig12.pdf, id=4928, 520.34262pt x 213.39223pt>
 File: myfig12.pdf Graphic file (type pdf)
  <use myfig12.pdf>
-Package pdftex.def Info: myfig12.pdf used on input line 498.
+Package pdftex.def Info: myfig12.pdf used on input line 499.
 (pdftex.def)             Requested size: 232.19843pt x 95.22461pt.
  [7 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig10.pdf> 
 <C:/Users/310-w/Desktop/TempGit/XUZHOUBEI-Station/FILE/second/myfig11.pdf>]
@@ -549,7 +549,7 @@ KTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><F:/CTEX/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy9.pfb><F:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><F:/CT
 EX/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><F:/CTEX/MiKTeX/fonts/type1/urw/tim
 es/utmr8a.pfb><F:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (8 pages, 6658487 bytes).
+Output written on conference_101719.pdf (8 pages, 6658530 bytes).
 PDF statistics:
  6572 PDF objects out of 7423 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
