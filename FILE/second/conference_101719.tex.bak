@@ -239,7 +239,7 @@ With weight-stationary dataflow designed on FPGA, Li et al. improved the computi
 However, this work still occupied storage space for huge scale of zero data like Lu et al., and its simple hardware structure could not tackle complex workloads in our task.
 
 \textbf{GCN Accelerators on FPGA.} Many works on accelerating large graph's GCNs based on FPGA are presented in recent time.
-AWB-GCN \cite{17} combined offline software averaging and runtime hardware workloads balancing on several large graph datasets.
+AWB-GCN \cite{17} combined dynamic hardware configuration and runtime hardware workloads balancing on several large graph datasets.
 Zhang et al. \cite{18} partitioned input data into smaller segments, then perform graph sparsification and node re-ordering for computation reduction and data locality.
 Hy-GCN  \cite{19} split GCNs workloads into \textit{Aggregation and Combination} phases.
 Different hardware structures and dataflows were designed for two phases respectively.
