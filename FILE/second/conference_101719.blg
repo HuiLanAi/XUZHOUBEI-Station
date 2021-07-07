@@ -1,9 +1,14 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: conference_101719.aux
 The style file: ieeetr.bst
 Database file #1: inerbib.bib
-I was expecting a `,' or a `}'---line 87 of file inerbib.bib
+I was expecting a `,' or a `}'---line 85 of file inerbib.bib
  : 
  : booktitle = {arXiv:1705.06950, 2017. 2, 5, 6},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 140 of file inerbib.bib
+ : 
+ : %  title={Hygcn: A gcn accelerator with hybrid architecture},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--empty title in 6
@@ -11,4 +16,4 @@ Warning--empty booktitle in 6
 Warning--empty year in 6
 Warning--empty booktitle in 12
 Warning--can't use both volume and number fields in 16
-(There was 1 error message)
+(There were 2 error messages)

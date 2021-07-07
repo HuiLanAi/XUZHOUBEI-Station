@@ -61,42 +61,42 @@
 %\thanks{Identify applicable funding agency here. If none, delete this.}
 }
 %
-%\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-%\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%\textit{name of organization (of Aff.)}\\
-%City, Country \\
-%email address or ORCID}
-%\and
-%\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
-%\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%\textit{name of organization (of Aff.)}\\
-%City, Country \\
-%email address or ORCID}
-%\and
-%\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-%\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%\textit{name of organization (of Aff.)}\\
-%City, Country \\
-%email address or ORCID}
-%\and
-%\IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
-%\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%\textit{name of organization (of Aff.)}\\
-%City, Country \\
-%email address or ORCID}
-%\and
-%\IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
-%\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%\textit{name of organization (of Aff.)}\\
-%City, Country \\
-%email address or ORCID}
-%\and
-%\IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
-%\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%\textit{name of organization (of Aff.)}\\
-%City, Country \\
-%email address or ORCID}
-%}
+\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+\and
+\IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+\and
+\IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+\and
+\IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+}
 
 \maketitle
 
@@ -216,7 +216,7 @@ Table.~\ref{tab1} demonstrates the computing cost of self-similarity. The runnin
 \end{center}
 \end{table}
 \begin{figure}[htbp]
-pp\centerline{\includegraphics[width=0.42\textwidth]{myfig2.pdf}}
+\centerline{\includegraphics[width=0.42\textwidth]{myfig2.pdf}}
 \caption{The neighbour connection between temporal convolutional output and spatial convolutional input.}\label{myfig2}
 \end{figure}
 Following the spatial convolution, temporal convolutional layer is set at the end of each convolutional block.
@@ -351,10 +351,10 @@ Another issue on compact storage is to determine the volume of each mini-bank. L
 
 \section{Experiments}
 In this section, we evaluate our design on both software and hardware views.
-Our pruning method is explored on one V100 GPU using PyTorch, and accelerator architecture is implemented with Verilog HDL on Vivado 2018.3 IDE. 
+Our pruning method is explored on one V100 GPU using PyTorch, and accelerator architecture is implemented with Verilog HDL on Vivado 2018.3 IDE.
 
 \subsection{Validations on Hybrid Pruning Method}
-In experiments, the proposed hybrid pruning method on 2s-AGCN model is compared with unstructured pruning on NTU-RGB+D, 
+In experiments, the proposed hybrid pruning method on 2s-AGCN model is compared with unstructured pruning on NTU-RGB+D,
 which contains 37k training and 18k testing data.
 We explore the impact of different pruning designs on accuracy,
 e.g.,  various fine-grained pruning schemes for temporal filters and channel-dropping modes in reorganization phase.

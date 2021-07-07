@@ -61,11 +61,11 @@
 %\thanks{Identify applicable funding agency here. If none, delete this.}
 }
 %
-%\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-%\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\author{\IEEEauthorblockN{Dong Wen, Jingfei Jiang, Jinwei Xu, Kang Wang, Tao Xiao, Yang Zhao, Yong Dou}
+\IEEEauthorblockA{\textit{National University of Defense Technology}, Changsha, China
 %\textit{name of organization (of Aff.)}\\
-%City, Country \\
-%email address or ORCID}
+\\
+{\{wendong19, jingfeijiang, xujinwei13, wangkang, xiaotao19, zhaoyang10, yongdou\}}@nudt.edu.cn}
 %\and
 %\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
 %\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
@@ -96,7 +96,7 @@
 %\textit{name of organization (of Aff.)}\\
 %City, Country \\
 %email address or ORCID}
-%}
+}
 
 \maketitle
 
@@ -117,7 +117,7 @@ Graph Neural Network, Action Recognition, Hybrid Pruning, Sparse Data Compress, 
 \section{Introduction}
 %This document is a model and instructions for \LaTeX.
 %Please observe the conference page limits.
-Action recognition based on deep learning has the great potential to be applied in kindergartens, hospitals and stadiums to prevent danger motions.
+Action recognition based on deep learning has great potential to be applied in kindergartens and hospitals to prevent danger motions.
 Skeleton-based graph convolutional networks (GCNs) methods have achieved state-of-the-art (SOTA) prediction accuracy in the field \cite{1}\cite{2}\cite{3}.
 Mature pose estimation algorithms extract human skeletons from video stream with real-time speed, for example, OpenPose \cite{4} and Alphapose \cite{5}.
 GCNs action recognition models and pose estimation models thus can be combined into an end-to-end system.
@@ -144,13 +144,13 @@ optimized for computation, while feature sparsity is not utilized. (iv) Their si
 For these reasons, efficient pruning methods together with specific accelerator designs are urgently required to accelerate GCNs action recognition workloads.
 To this end, we present RFC-HyPGCN: a runtime sparse feature compress accelerator for skeleton-based GCNs action recognition model with hybrid pruning in this paper.
 
-A hybrid GCNs' pruning method is proposed, which can reduce convolutional parameters and skip graph computation efficiently.
+A hybrid GCNs' pruning method is proposed, which reduces network parameters and skips graph computation efficiently.
 We reorganize dataflow by changing the multiplication order of graph workloads and spatial convolution.
-With new dataflow, a group of graph computation and spatial convolution are skipped if the corresponding parameter is pruned as zero.
+With new dataflow, graph computation and spatial convolution are skipped if the corresponding parameter is pruned as zero.
 As to the temporal convolution, mixed-grained pruning method is elaborately designed.
 Fine-grained pruning operation can be dealt as sampling in time series, while coarse-grained pruning is decided by spatial convolution's pruned dataflow.
-The experiments demonstrate that in most cases, better prediction accuracy and more balanced pruning can be possessed by our model compared with conventional methods.
-Additionally, quantization and input-skipping are applied on software level, which are common means to accelerate neural networks.
+Experiments demonstrate that in most cases, better prediction accuracy and more balanced pruning can be possessed by our model compared with conventional methods.
+Additionally, quantization and input-skipping are applied, which are common means to accelerate neural networks.
 
 We also design an application-specific architecture. Ten convolution blocks are mapped on FPGA, which is the platform widely used for speeding up deep neural networks.
 Different from previous works, in our layer-pipelined architecture, challenges are not only reflected on different kinds of sparse tasks,
@@ -241,8 +241,8 @@ However, this work still occupied storage space for huge scale of zero data like
 \textbf{GCN Accelerators on FPGA.} Many works on accelerating large graph's GCNs based on FPGA are presented in recent time.
 AWB-GCN \cite{17} combined dynamic hardware configuration and runtime hardware workloads balancing on several large graph datasets.
 Zhang et al. \cite{18} partitioned input data into smaller segments, then perform graph sparsification and node re-ordering for computation reduction and data locality.
-Hy-GCN  \cite{19} split GCNs workloads into \textit{Aggregation and Combination} phases.
-Different hardware structures and dataflows were designed for two phases respectively.
+%Hy-GCN  \cite{19} split GCNs workloads into \textit{Aggregation and Combination} phases.
+%Different hardware structures and dataflows were designed for two phases respectively.
 To sum up, above works focus on: (i) Leveraging and expanding graph adjacency matrixes sparsity,
 (ii) Avoiding irregularity and randomness of data distribution in graph computation,
 (iii) Keeping balanced workloads between PEs or computing phases, via offline and online ways.
@@ -505,11 +505,11 @@ Experiments have proved that our design has superiority on peak performance, thr
 In Table.~\ref{tab5}, we compare the peak performance of ours and two GPUs.
 The original means testing program is the original version of 2s-AGCN, and the skip means w/oC together with input-skipping is applied.
 To fully use the memory in GPUs, target model runs with 200 or 700 samples in one batch on 2080Ti and V100, respectively.
-Although V100 has 14TFLOPS of peak performance on float data, our pruning methods provides 86\% parameter reductions and 88\% computation skipping efficiency.
-Moreover, our layer-pipelined structure does not need to exchange data with peripheral memory except for loading original input, which further increases performance.
+Although V100 has 14TFLOPS of peak performance, our pruning methods provides 86\% parameter reductions and 88\% computation skipping efficiency.
+Moreover, our layer-pipelined structure does not need to exchange data with DRAM except for loading original input, which further boosts performance.
 Compared with two main-stream GPUs, our accelerator provides 1.36x-9.19x of speedup, showing competitive performance.
 \section{Conclusion}
-In this article, we propose a software-hardware co-design for action recognition GCNs: RFC-HyPGCN, including hybrid pruning method and a runtime sparse feature compress architecture with layer-pipeline. Firstly, a hybrid pruning method specific on action recognition GCNs is explored on 2s-AGCN. Secondly, we propose an architecture based on balanced pruned model. Finally, a runtime sparse feature compact format is designed to reduce zero-storage between layers. Experiments demonstrate that compared with conventional unstructured pruning, our method achieves better accuracy performance in most cases. The accelerator is implemented on Xilinx XCKU-115 FPGA. At the cost of negligible working delay, RFC reduces 35.93\% of used BRAM and 23.24\% of DSPs. Ours provides 22.62x speed-up and 59.41\% elevation on DSP efficiency over another work on accelerating action recognition GCNs. On contrast to high-end GPUs, RFC-HyPGCN achieves 1.36x-9.47x speed-up on throughput.
+In this article, we propose a software-hardware co-design for action recognition GCNs: RFC-HyPGCN, including hybrid pruning method and a runtime sparse feature compress architecture. Firstly, a hybrid pruning method is explored on 2s-AGCN. Secondly, we propose an architecture based on the balanced pruned model. Finally, a runtime sparse feature compact format is designed to reduce zero-storage between layers. Experiments demonstrate that compared with conventional unstructured pruning, our method achieves better accuracy performance in most cases. The accelerator is implemented on Xilinx XCKU-115 FPGA. At the cost of negligible working delay, RFC reduces 35.93\% of used BRAM and 23.24\% of DSPs. Ours provides 22.62x speed-up and 59.41\% elevation on DSP efficiency over another work on accelerating action recognition GCNs. On contrast to high-end GPUs, RFC-HyPGCN achieves 1.36x-9.47x speed-up on throughput.
 %
 %The IEEEtran class file is used to format your paper and style the text. All margins,
 %column widths, line spaces, and text fonts are prescribed; please do not
@@ -681,12 +681,9 @@ In this article, we propose a software-hardware co-design for action recognition
 %quantities and units. For example, write ``Temperature (K)'', not
 %``Temperature/K''.
 
-%\section*{Acknowledgment}
-%
-%The preferred spelling of the word ``acknowledgment'' in America is without
-%an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B.
-%G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor
-%acknowledgments in the unnumbered footnote on the first page.
+\section*{Acknowledgment}
+
+The paper is supported by National Natural Science Foundation of China (No.61732018, No.61802420) and Pre-research Project of China (No.31513010602-1).
 
 %\section*{References}
 %
@@ -708,7 +705,6 @@ In this article, we propose a software-hardware co-design for action recognition
 %
 %For papers published in translation journals, please give the English
 %citation first, followed by the original foreign-language citation \cite{b6}.
-
 %\begin{thebibliography}{00}
 %\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
 %\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.

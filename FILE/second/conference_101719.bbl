@@ -1,16 +1,14 @@
 \begin{thebibliography}{10}
 
 \bibitem{1}
-F.~M. Bianchi, D.~Grattarola, L.~Livi, and C.~Alippi, ``Hierarchical
-  representation learning in graph neural networks with node decimation
-  pooling,'' {\em IEEE Transactions on Neural Networks and Learning Systems},
-  2020.
+F.~M. Bianchi, D.~Grattarola, and L.~Livi, ``Hierarchical representation
+  learning in graph neural networks with node decimation pooling,'' {\em IEEE
+  Transactions on Neural Networks and Learning Systems}, 2020.
 
 \bibitem{2}
-K.~Cheng, Y.~Zhang, X.~He, W.~Chen, J.~Cheng, and H.~Lu, ``Skeleton-based
-  action recognition with shift graph convolutional network,'' in {\em
-  Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
-  Recognition (CVPR)}, June 2020.
+K.~Cheng, Y.~Zhang, and X.~He, ``Skeleton-based action recognition with shift
+  graph convolutional network,'' in {\em IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, June 2020.
 
 \bibitem{3}
 J.~Gao, T.~Zhang, and C.~Xu, ``I know the relationships: Zero-shot action
@@ -19,33 +17,31 @@ J.~Gao, T.~Zhang, and C.~Xu, ``I know the relationships: Zero-shot action
   Intelligence}, vol.~33, pp.~8303--8311, Jul. 2019.
 
 \bibitem{4}
-Z.~Cao, T.~Simon, S.-E. Wei, and Y.~Sheikh, ``Realtime multi-person 2d pose
-  estimation using part affinity fields,'' in {\em Proceedings of the IEEE
-  Conference on Computer Vision and Pattern Recognition (CVPR)}, July 2017.
+Z.~Cao and T.~Simon, ``Realtime multi-person 2d pose estimation using part
+  affinity fields,'' in {\em Proceedings of the IEEE Conference on Computer
+  Vision and Pattern Recognition (CVPR)}, July 2017.
 
 \bibitem{5}
-Y.~Xiu, J.~Li, H.~Wang, Y.~Fang, and C.~Lu, ``{Pose Flow}: Efficient online
-  pose tracking,'' in {\em BMVC}, 2018.
+Y.~Xiu, J.~Li, and H.~Wang, ``{Pose Flow}: Efficient online pose tracking,'' in
+  {\em BMVC}, 2018.
 
 \bibitem{6}
 https://github.com/LiQiang0307/MobilePose pytorch
 
 \bibitem{7}
-F.~M. {Bianchi}, D.~{Grattarola}, L.~{Livi}, and C.~{Alippi}, ``Hierarchical
-  representation learning in graph neural networks with node decimation
-  pooling,'' {\em IEEE Transactions on Neural Networks and Learning Systems},
-  pp.~1--13, 2020.
+F.~M. {Bianchi} and D.~{Grattarola}, ``Hierarchical representation learning in
+  graph neural networks with node decimation pooling,'' {\em IEEE Transactions
+  on Neural Networks and Learning Systems}, pp.~1--13, 2020.
 
 \bibitem{8}
-J.~Li, T.~Zhang, H.~Tian, and S.~Jin, ``Sgcn: A graph sparsifier based on graph
-  convolutional networks,'' in {\em Advances in Knowledge Discovery and Data
-  Mining}, pp.~275--287, 2020.
+J.~Li and T.~Zhang, ``Sgcn: A graph sparsifier based on graph convolutional
+  networks,'' in {\em Advances in Knowledge Discovery and Data Mining},
+  pp.~275--287, 2020.
 
 \bibitem{9}
-L.~Shi, Y.~Zhang, J.~Cheng, and H.~Lu, ``Two-stream adaptive graph
-  convolutional networks for skeleton-based action recognition,'' in {\em
-  Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
-  Recognition}, pp.~12026--12035, 2019.
+L.~Shi, Y.~Zhang, {\em et~al.}, ``Two-stream adaptive graph convolutional
+  networks for skeleton-based action recognition,'' in {\em IEEE/CVF Conference
+  on Computer Vision and Pattern Recognition}, pp.~12026--12035, 2019.
 
 \bibitem{10}
 L.~Ding, Z.~Huang, and G.~Chen, ``An fpga implementation of gcn with sparse
@@ -54,8 +50,8 @@ L.~Ding, Z.~Huang, and G.~Chen, ``An fpga implementation of gcn with sparse
 
 \bibitem{11}
 A.~Shahroudy, J.~Liu, T.-T. Ng, and G.~Wang, ``Ntu rgb+d: A large scale dataset
-  for 3d human activity analysis,'' in {\em Proceedings of the IEEE Conference
-  on Computer Vision and Pattern Recognition (CVPR)}, June 2016.
+  for 3d human activity analysis,'' in {\em IEEE Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, June 2016.
 
 \bibitem{12}
 A.~Zisserman, J.~Carreira, K.~Simonyan, W.~Kay, B.~Zhang, C.~Hillier,
@@ -69,10 +65,10 @@ C.~Zhu, K.~Huang, S.~Yang, Z.~Zhu, H.~Zhang, and H.~Shen, ``An efficient
   Systems}, vol.~28, no.~9, pp.~1953--1965, 2020.
 
 \bibitem{14}
-L.~Lu, J.~Xie, R.~Huang, J.~Zhang, W.~Lin, and Y.~Liang, ``An efficient
-  hardware accelerator for sparse convolutional neural networks on fpgas,'' in
-  {\em 2019 IEEE 27th Annual International Symposium on Field-Programmable
-  Custom Computing Machines (FCCM)}, pp.~17--25, IEEE, 2019.
+L.~Lu, J.~Xie, R.~Huang, J.~Zhang, and W.~Lin, ``An efficient hardware
+  accelerator for sparse convolutional neural networks on fpgas,'' in {\em 2019
+  IEEE 27th Annual International Symposium on Field-Programmable Custom
+  Computing Machines (FCCM)}, pp.~17--25, IEEE, 2019.
 
 \bibitem{15}
 N.~Li, L.~Liu, S.~Wei, and S.~Yin, ``A high-performance inference accelerator
@@ -87,8 +83,7 @@ X.~Ma, F.-M. Guo, W.~Niu, X.~Lin, J.~Tang, K.~Ma, B.~Ren, and Y.~Wang, ``Pconv:
   Artificial Intelligence}, vol.~34, pp.~5117--5124, 2020.
 
 \bibitem{17}
-T.~Geng, A.~Li, R.~Shi, C.~Wu, T.~Wang, Y.~Li, P.~Haghi, A.~Tumeo, S.~Che,
-  S.~Reinhardt, {\em et~al.}, ``Awb-gcn: A graph convolutional network
+T.~Geng, A.~Li, R.~Shi, {\em et~al.}, ``Awb-gcn: A graph convolutional network
   accelerator with runtime workload rebalancing,'' in {\em 2020 53rd Annual
   IEEE/ACM International Symposium on Microarchitecture (MICRO)}, pp.~922--936,
   IEEE, 2020.
@@ -98,11 +93,5 @@ B.~Zhang, H.~Zeng, and V.~Prasanna, ``Hardware acceleration of large scale gcn
   inference,'' in {\em 2020 IEEE 31st International Conference on
   Application-specific Systems, Architectures and Processors (ASAP)},
   pp.~61--68, IEEE, 2020.
-
-\bibitem{19}
-M.~Yan, L.~Deng, X.~Hu, L.~Liang, Y.~Feng, X.~Ye, Z.~Zhang, D.~Fan, and Y.~Xie,
-  ``Hygcn: A gcn accelerator with hybrid architecture,'' in {\em 2020 IEEE
-  International Symposium on High Performance Computer Architecture (HPCA)},
-  pp.~15--29, IEEE, 2020.
 
 \end{thebibliography}
